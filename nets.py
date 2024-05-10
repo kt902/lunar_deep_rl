@@ -25,6 +25,7 @@ class QNet(nn.Module):
         x = F.relu(x)
         return self.fc3(x)
 
+# Attempt at batch normalization
 # class QNet(nn.Module):
 #     def __init__(self, state_size, action_size, num_neurons):
 #         super(QNet, self).__init__()

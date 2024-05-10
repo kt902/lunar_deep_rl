@@ -43,12 +43,6 @@ class Agent():
     ):
         """Initialize an Agent object.
 
-        Params
-        ======
-            state_size (int): dimension of each state
-            action_size (int): dimension of each action
-            seed (int): random seed
-            update_target_every (int): how often to perform a hard update of target network
         """
 
         print("")
@@ -123,13 +117,6 @@ class Agent():
 
 
     def act(self, state, eps=0.):
-        """Returns actions for given state as per current policy.
-
-        Params
-        ======
-            state (array_like): current state
-            eps (float): epsilon, for epsilon-greedy action selection
-        """
 
         state = torch.tensor(np.array([state]), device=device)
         # state = torch.from_numpy(state).float().unsqueeze(0).to(device)
@@ -147,13 +134,6 @@ class Agent():
             return random.choice(np.arange(self.action_size)), action_values
 
     def learn(self, experiences, gamma):
-        """Update value parameters using given batch of experience tuples.
-
-        Params
-        ======
-            experiences (Tuple[torch.Variable]): tuple of (s, a, r, s', done) tuples
-            gamma (float): discount factor
-        """
         # Obtain random minibatch of tuples from D
         states, actions, rewards, next_states, dones = experiences
 
